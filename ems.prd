@@ -1,0 +1,18 @@
+/* YouTube Channel: Code Insight Academy
+CREATE MINI PROJECT
+to perfor CRUD operation on Employee resourse using Collection List, ArrayList
+class Employee 
+int id
+String name
+String department
+int salary
+
+o/p:- 
+Select Option: 
+1. show employee list
+2. add new employee
+3. update employee data by id
+4. delete employee data by id
+0. exit
+
+*/
