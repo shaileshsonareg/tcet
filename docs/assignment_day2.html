@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 Programming Assignments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .assignments-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .assignment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .assignment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .assignment-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+        }
+
+        .assignment-card h2 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            padding-right: 60px;
+        }
+
+        .description {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9fafb;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .requirements {
+            margin-top: 20px;
+        }
+
+        .requirements h3 {
+            color: #374151;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirements h3::before {
+            content: "✓";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            color: #374151;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .requirements li::before {
+            content: "→";
+            position: absolute;
+            left: 15px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        code {
+            background: #1f2937;
+            color: #10b981;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .assignment-card {
+                padding: 20px;
+            }
+
+            .assignment-card h2 {
+                font-size: 1.3em;
+            }
+
+            .assignment-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Day 2 Programming Assignments</h1>
+            <p class="subtitle">Complete these 10 assignments to strengthen your programming skills</p>
+        </header>
+
+        <div class="assignments-grid">
+            <!-- Assignment 1 -->
+            <div class="assignment-card">
+                <div class="assignment-number">1</div>
+                <h2>Student Grade Card Generator</h2>
+                <div class="description">
+                    Create a Java class <code>Student</code> with fields: <code>rollNo</code>, <code>name</code>, <code>marks</code> (int array of 3 subjects). Add a method <code>calculateGrade()</code> that returns a character grade ('A', 'B', 'C', 'F') based on average marks. Override <code>toString()</code> to display full details. Create 2 students in <code>main()</code> and print their grade cards.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use <code>this</code> in constructor</li>
+                        <li>Calculate average: <code>(m1 + m2 + m3) / 3</code></li>
+                        <li>Grade rules: ≥80→A, ≥60→B, ≥40→C, else F</li>
+                        <li>Output format: <code>Student [rollNo=101, name=Priya, marks=[85,78,90], grade=A]</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 2 -->
+            <div class="assignment-card">
+                <div class="assignment-number">2</div>
+                <h2>Live Digital Clock in Browser</h2>
+                <div class="description">
+                    Create an HTML page with a <code>&lt;div id='clock'&gt;&lt;/div&gt;</code>. Use JavaScript and <code>setInterval()</code> to display the current time in <code>HH:MM:SS AM/PM</code> format, updating every second. Use <code>Date()</code> object and template literals.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Update every 1000ms</li>
+                        <li>12-hour format with AM/PM</li>
+                        <li>Pad single digits with zero (e.g., 09:05:03)</li>
+                        <li>Display in bold large font using inline style</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 3 -->
+            <div class="assignment-card">
+                <div class="assignment-number">3</div>
+                <h2>Bank Account Management System</h2>
+                <div class="description">
+                    Create a Java class <code>BankAccount</code> with fields: <code>accountNumber</code>, <code>accountHolder</code>, <code>balance</code>. Implement methods: <code>deposit(amount)</code>, <code>withdraw(amount)</code>, and <code>checkBalance()</code>. Prevent withdrawal if balance is insufficient. Create 2 accounts and perform transactions.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Make <code>balance</code> private with getter method</li>
+                        <li>Return boolean from <code>withdraw()</code> for success/failure</li>
+                        <li>Print transaction details after each operation</li>
+                        <li>Use proper encapsulation principles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 4 -->
+            <div class="assignment-card">
+                <div class="assignment-number">4</div>
+                <h2>Shape Hierarchy with Area Calculation</h2>
+                <div class="description">
+                    Create an abstract class <code>Shape</code> with abstract method <code>area()</code>. Create subclasses: <code>Rectangle</code> (length, width), <code>Triangle</code> (base, height), and <code>Square</code> (side). Each must implement <code>area()</code>. In <code>main()</code>, create an array of <code>Shape</code> references and print area of each using polymorphism.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><code>Shape</code> is abstract with <code>area()</code></li>
+                        <li>Use <code>super()</code> where needed</li>
+                        <li>Triangle area = 0.5 × base × height</li>
+                        <li>Use <code>System.out.printf("%.2f", area)</code> for 2 decimal places</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 5 -->
+            <div class="assignment-card">
+                <div class="assignment-number">5</div>
+                <h2>Interactive To-Do List Web App</h2>
+                <div class="description">
+                    Create an HTML page with an input field and "Add" button. Use JavaScript to add tasks to a list (<code>&lt;ul&gt;</code>). Each task should have a "Delete" button next to it. Tasks should be dynamically created and removed from the DOM.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use <code>createElement()</code> and <code>appendChild()</code></li>
+                        <li>Clear input field after adding task</li>
+                        <li>Delete button removes specific task from list</li>
+                        <li>Style with CSS for better appearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 6 -->
+            <div class="assignment-card">
+                <div class="assignment-number">6</div>
+                <h2>Simple Calculator Web App</h2>
+                <div class="description">
+                    Create an HTML form with two number inputs and a dropdown for operation (+, -, ×, ÷). On button click, use JavaScript to calculate and display result in a <code>&lt;p&gt;</code> tag. Handle division by zero with alert.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use <code>querySelector()</code> and <code>addEventListener('click')</code></li>
+                        <li>Use <code>Number()</code> to convert inputs</li>
+                        <li>Use <code>switch</code> or <code>if-else</code> for operation</li>
+                        <li>Show result: <code>5 + 3 = 8</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 7 -->
+            <div class="assignment-card">
+                <div class="assignment-number">7</div>
+                <h2>Employee Salary Calculator</h2>
+                <div class="description">
+                    Create a Java class <code>Employee</code> with fields: <code>empId</code>, <code>name</code>, <code>basicSalary</code>. Calculate gross salary with HRA (20% of basic), DA (10% of basic), and deduct tax (5% of gross). Create method <code>calculateNetSalary()</code> and display payslip for 3 employees.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use separate methods for HRA, DA, and Tax calculations</li>
+                        <li>Display payslip format with all components</li>
+                        <li>Use <code>DecimalFormat</code> or <code>printf</code> for currency formatting</li>
+                        <li>Create array of Employee objects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 8 -->
+            <div class="assignment-card">
+                <div class="assignment-number">8</div>
+                <h2>Temperature Converter Web Page</h2>
+                <div class="description">
+                    Create an HTML page with input field for temperature, radio buttons for conversion type (Celsius to Fahrenheit or vice versa), and a "Convert" button. Display the converted temperature. Formulas: F = (C × 9/5) + 32, C = (F - 32) × 5/9
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use radio buttons for conversion direction</li>
+                        <li>Check which radio button is selected using <code>checked</code> property</li>
+                        <li>Display result with unit (°C or °F)</li>
+                        <li>Validate input is a valid number</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 9 -->
+            <div class="assignment-card">
+                <div class="assignment-number">9</div>
+                <h2>Vehicle Inheritance System</h2>
+                <div class="description">
+                    Create a base class <code>Vehicle</code> with fields: <code>brand</code>, <code>model</code>, <code>year</code> and method <code>displayInfo()</code>. Create subclasses <code>Car</code> (add <code>numDoors</code>) and <code>Bike</code> (add <code>hasCarrier</code>). Override <code>displayInfo()</code> in both. Create objects and demonstrate inheritance.
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use <code>super()</code> to call parent constructor</li>
+                        <li>Override <code>displayInfo()</code> and call <code>super.displayInfo()</code></li>
+                        <li>Create at least 2 cars and 2 bikes</li>
+                        <li>Use <code>instanceof</code> to check object type</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Assignment 10 -->
+            <div class="assignment-card">
+                <div class="assignment-number">10</div>
+                <h2>Library Book Management System</h2>
+                <div class="description">
+                    Design a console-based Library system in Java. Create interface <code>LibraryOperations</code> with methods: <code>issueBook()</code>, <code>returnBook()</code>, <code>showStatus()</code>. Create class <code>Book</code> (id, title, author, isIssued). Use <code>ArrayList&lt;Book&gt;</code>. Implement menu: 1. Add Book, 2. Issue Book, 3. Return Book, 4. Show All Books, 0. Exit
+                </div>
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Use <code>ArrayList&lt;Book&gt;</code> for storage</li>
+                        <li>Implement interface in <code>Library</code> class</li>
+                        <li>Prevent issuing already issued book</li>
+                        <li>Search by <code>id</code>, handle 'not found' cases</li>
+                        <li>Use <code>Scanner</code>, <code>switch-case</code>, loop until exit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
