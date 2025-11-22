@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRD - Employee Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .meta-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .meta-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-info td {
+            padding: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .meta-info td:first-child {
+            font-weight: bold;
+            width: 200px;
+            color: #667eea;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .feature-box {
+            background: #e8f4f8;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .requirement-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table.data-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table.data-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table.data-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .endpoint {
+            background: #1e293b;
+            color: #fff;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .get { background: #10b981; }
+        .post { background: #f59e0b; }
+        .put { background: #3b82f6; }
+        .delete { background: #ef4444; }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #667eea;
+            text-align: center;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Product Requirements Document</h1>
+            <div class="subtitle">Employee Management System - CRUD Application</div>
+        </div>
+
+        <div class="meta-info">
+            <table>
+                <tr>
+                    <td>Project Name:</td>
+                    <td>Employee Management System</td>
+                </tr>
+                <tr>
+                    <td>Document Type:</td>
+                    <td>Mini Project Assignment - PRD</td>
+                </tr>
+                <tr>
+                    <td>Version:</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td>November 2025</td>
+                </tr>
+                <tr>
+                    <td>Technology Stack:</td>
+                    <td>HTML, CSS, JavaScript, Axios, Spring Boot</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>1. Project Overview</h2>
+            <p>
+                The Employee Management System is a full-stack web application that enables users to perform 
+                <span class="highlight">Create, Read, Update, and Delete (CRUD)</span> operations on employee records. 
+                This mini project demonstrates the integration of a modern frontend interface with a RESTful Spring Boot backend.
+            </p>
+            
+            <div class="feature-box">
+                <h4>🎯 Project Objectives:</h4>
+                <ul>
+                    <li>Implement a complete CRUD application with REST API integration</li>
+                    <li>Demonstrate understanding of frontend-backend communication using Axios</li>
+                    <li>Create an intuitive user interface with modal dialogs and confirmations</li>
+                    <li>Handle asynchronous operations and error management</li>
+                    <li>Apply modern web design principles and responsive layout</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">HTML5</div>
+                <div class="tech-item">CSS3</div>
+                <div class="tech-item">JavaScript (ES6+)</div>
+                <div class="tech-item">Axios Library</div>
+                <div class="tech-item">Spring Boot</div>
+                <div class="tech-item">REST API</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Data Model</h2>
+            <h3>Employee Entity</h3>
+            <p>The application manages employee records with the following structure:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>int</td>
+                        <td>Unique identifier for employee (auto-generated)</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Full name of the employee</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>department</td>
+                        <td>String</td>
+                        <td>Department where employee works</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>salary</td>
+                        <td>int</td>
+                        <td>Employee salary amount</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-block">
+<strong>Java Model Class:</strong><br><br>
+public class Employee {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private int id;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private String department;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private int salary;<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Constructors, Getters, and Setters<br>
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Backend Requirements (Spring Boot)</h2>
+            
+            <h3>4.1 REST API Endpoints</h3>
+            <p>Your Spring Boot application must implement the following RESTful endpoints:</p>
+
+            <div class="endpoint">
+                <span class="method get">GET</span> /employee
+                <p style="margin-left: 80px; color: #94a3b8;">Retrieve all employees (returns ArrayList&lt;Employee&gt;)</p>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span> /employee
+                <p style="margin-left: 80px; color: #94a3b8;">Create a new employee (accepts Employee JSON)</p>
+            </div>
+
+            <div class="endpoint">
+                <span class="method put">PUT</span> /employee/{id}
+                <p style="margin-left: 80px; color: #94a3b8;">Update an existing employee by ID</p>
+            </div>
+
+            <div class="endpoint">
+                <span class="method delete">DELETE</span> /employee/{id}
+                <p style="margin-left: 80px; color: #94a3b8;">Delete an employee by ID</p>
+            </div>
+
+            <h3>4.2 CORS Configuration</h3>
+            <p>Enable CORS in your Spring Boot controller to allow frontend communication:</p>
+            <div class="code-block">
+@CrossOrigin(origins = "http://localhost:*")<br>
+@RestController<br>
+@RequestMapping("/employee")<br>
+public class EmployeeController {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Your REST endpoints here<br>
+}
+            </div>
+
+            <h3>4.3 Sample Controller Implementation</h3>
+            <div class="code-block">
+@RestController<br>
+@RequestMapping("/employee")<br>
+@CrossOrigin(origins = "http://localhost:*")<br>
+public class EmployeeController {<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private ArrayList&lt;Employee&gt; employees = new ArrayList&lt;&gt;();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private int nextId = 1;<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@GetMapping<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public List&lt;Employee&gt; getAllEmployees() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return employees;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@PostMapping<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public Employee createEmployee(@RequestBody Employee employee) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;employee.setId(nextId++);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;employees.add(employee);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return employee;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@PutMapping("/{id}")<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public Employee updateEmployee(@PathVariable int id, @RequestBody Employee employee) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Update logic<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@DeleteMapping("/{id}")<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public void deleteEmployee(@PathVariable int id) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Delete logic<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Frontend Requirements</h2>
+            
+            <h3>5.1 Core Features</h3>
+            
+            <div class="requirement-box">
+                <h4>✅ Feature 1: Display Employee List</h4>
+                <ul>
+                    <li>Show all employees in a professional HTML table</li>
+                    <li>Display columns: ID, Name, Department, Salary, Actions</li>
+                    <li>Include total employee count</li>
+                    <li>Show appropriate message when no employees exist</li>
+                    <li>Implement loading indicator during data fetch</li>
+                </ul>
+            </div>
+
+            <div class="requirement-box">
+                <h4>✅ Feature 2: Add New Employee</h4>
+                <ul>
+                    <li>Open a modal popup when "Add Employee" button is clicked</li>
+                    <li>Form fields: Name, Department, Salary (all required)</li>
+                    <li>Form validation before submission</li>
+                    <li>Use Axios POST request to /employee endpoint</li>
+                    <li>Close modal and refresh list after successful creation</li>
+                </ul>
+            </div>
+
+            <div class="requirement-box">
+                <h4>✅ Feature 3: Edit Employee</h4>
+                <ul>
+                    <li>Each employee row has an "Edit" button</li>
+                    <li>Open the same modal popup with pre-filled data</li>
+                    <li>Use Axios PUT request to /employee/{id} endpoint</li>
+                    <li>Update the list after successful edit</li>
+                </ul>
+            </div>
+
+            <div class="requirement-box">
+                <h4>✅ Feature 4: Delete Employee</h4>
+                <ul>
+                    <li>Each employee row has a "Delete" button</li>
+                    <li>Show confirmation dialog with employee name before deletion</li>
+                    <li>Proceed with deletion only after user confirms</li>
+                    <li>Use Axios DELETE request to /employee/{id} endpoint</li>
+                    <li>Refresh list after successful deletion</li>
+                </ul>
+            </div>
+
+            <h3>5.2 User Interface Requirements</h3>
+            <ul>
+                <li>Clean and modern design with professional color scheme</li>
+                <li>Responsive layout that works on different screen sizes</li>
+                <li>Modal dialogs for add/edit operations (not separate pages)</li>
+                <li>Confirmation dialog for delete operations</li>
+                <li>Smooth animations and transitions</li>
+                <li>Clear action buttons with appropriate icons/labels</li>
+                <li>Error handling and user feedback messages</li>
+            </ul>
+
+            <h3>5.3 Technical Implementation</h3>
+            <ul>
+                <li><strong>Single HTML File:</strong> All code must be in one HTML file (inline CSS and JavaScript)</li>
+                <li><strong>Axios Library:</strong> Use CDN link for Axios (no npm installation required)</li>
+                <li><strong>No External Files:</strong> No separate .css or .js files needed</li>
+                <li><strong>API URL Configuration:</strong> Easy to configure backend URL (variable at top of JS)</li>
+                <li><strong>Async Operations:</strong> Proper handling of asynchronous API calls</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Functional Workflow</h2>
+            
+            <h3>6.1 Application Flow</h3>
+            <ol>
+                <li><strong>Page Load:</strong> Application automatically fetches all employees from backend</li>
+                <li><strong>Display Data:</strong> Employees are rendered in a table format</li>
+                <li><strong>Add Operation:</strong>
+                    <ul>
+                        <li>User clicks "Add New Employee" button</li>
+                        <li>Modal popup opens with empty form</li>
+                        <li>User fills in employee details</li>
+                        <li>On submit, POST request sent to backend</li>
+                        <li>Modal closes and list refreshes</li>
+                    </ul>
+                </li>
+                <li><strong>Edit Operation:</strong>
+                    <ul>
+                        <li>User clicks "Edit" button on specific employee row</li>
+                        <li>Modal popup opens with pre-filled data</li>
+                        <li>User modifies details</li>
+                        <li>On submit, PUT request sent to backend</li>
+                        <li>Modal closes and list refreshes</li>
+                    </ul>
+                </li>
+                <li><strong>Delete Operation:</strong>
+                    <ul>
+                        <li>User clicks "Delete" button on specific employee row</li>
+                        <li>Confirmation dialog appears with employee name</li>
+                        <li>If confirmed, DELETE request sent to backend</li>
+                        <li>Dialog closes and list refreshes</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>7. Error Handling Requirements</h2>
+            <ul>
+                <li>Display user-friendly error messages when API calls fail</li>
+                <li>Handle network errors gracefully</li>
+                <li>Show loading indicators during API operations</li>
+                <li>Validate form inputs before submission</li>
+                <li>Provide feedback for successful operations</li>
+                <li>Handle cases where backend server is not running</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. Setup and Execution Instructions</h2>
+            
+            <h3>8.1 Backend Setup</h3>
+            <ol>
+                <li>Create a Spring Boot project with Web dependency</li>
+                <li>Create Employee model class with id, name, department, salary fields</li>
+                <li>Create EmployeeController with REST endpoints</li>
+                <li>Add @CrossOrigin annotation to enable CORS</li>
+                <li>Run Spring Boot application (default port: 8080)</li>
+            </ol>
+
+            <h3>8.2 Frontend Setup</h3>
+            <ol>
+                <li>Save the provided HTML file to your local system</li>
+                <li>Update the API_URL variable to match your backend URL</li>
+                <li>Open the HTML file in a web browser (Chrome, Firefox, etc.)</li>
+                <li>Ensure backend server is running before testing</li>
+            </ol>
+
+            <h3>8.3 Testing Checklist</h3>
+            <ul>
+                <li>✓ Verify employee list loads on page refresh</li>
+                <li>✓ Test adding new employee with valid data</li>
+                <li>✓ Test form validation with empty fields</li>
+                <li>✓ Test editing existing employee</li>
+                <li>✓ Test delete with confirmation and cancellation</li>
+                <li>✓ Test UI responsiveness on different screen sizes</li>
+                <li>✓ Verify error handling when backend is down</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>9. Deliverables</h2>
+            <ol>
+                <li><strong>Backend Code:</strong> Complete Spring Boot project with REST API</li>
+                <li><strong>Frontend Code:</strong> Single HTML file with embedded CSS and JavaScript</li>
+                <li><strong>Documentation:</strong> README file with setup instructions</li>
+                <li><strong>Demo:</strong> Working demonstration of all CRUD operations</li>
+                <li><strong>Screenshots:</strong> Screenshots of each functionality (optional)</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>10. Evaluation Criteria</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Points</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Backend Implementation</td>
+                        <td>25</td>
+                        <td>REST API endpoints, proper HTTP methods, CORS configuration</td>
+                    </tr>
+                    <tr>
+                        <td>CRUD Operations</td>
+                        <td>25</td>
+                        <td>All operations working correctly (Create, Read, Update, Delete)</td>
+                    </tr>
+                    <tr>
+                        <td>User Interface</td>
+                        <td>20</td>
+                        <td>Professional design, modal popups, confirmation dialogs</td>
+                    </tr>
+                    <tr>
+                        <td>Error Handling</td>
+                        <td>15</td>
+                        <td>Proper error messages, validation, loading states</td>
+                    </tr>
+                    <tr>
+                        <td>Code Quality</td>
+                        <td>10</td>
+                        <td>Clean code, proper comments, organized structure</td>
+                    </tr>
+                    <tr>
+                        <td>Documentation</td>
+                        <td>5</td>
+                        <td>Clear setup instructions and comments</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>11. Bonus Features (Optional)</h2>
+            <ul>
+                <li>Search/Filter functionality in employee list</li>
+                <li>Sorting by different columns</li>
+                <li>Pagination for large datasets</li>
+                <li>Export employee data to CSV</li>
+                <li>Input validation with specific rules (e.g., salary range)</li>
+                <li>Dark mode toggle</li>
+                <li>Employee count by department</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>12. Common Issues and Solutions</h2>
+            
+            <h4>Issue: CORS Error</h4>
+            <p><strong>Solution:</strong> Add @CrossOrigin annotation to your Spring Boot controller</p>
+
+            <h4>Issue: 404 Not Found</h4>
+            <p><strong>Solution:</strong> Verify backend is running and API_URL is correct</p>
+
+            <h4>Issue: Data not refreshing</h4>
+            <p><strong>Solution:</strong> Ensure loadEmployees() is called after each CRUD operation</p>
+
+            <h4>Issue: Modal not closing</h4>
+            <p><strong>Solution:</strong> Check closeModal() function is properly called</p>
+        </div>
+
+        <div class="section">
+            <h2>13. Learning Outcomes</h2>
+            <p>Upon completion of this mini project, students will be able to:</p>
+            <ul>
+                <li>Design and implement RESTful web services using Spring Boot</li>
+                <li>Create responsive web interfaces using HTML, CSS, and JavaScript</li>
+                <li>Integrate frontend applications with backend APIs using Axios</li>
+                <li>Implement complete CRUD operations in a full-stack application</li>
+                <li>Handle asynchronous operations and promises in JavaScript</li>
+                <li>Apply user experience principles with modal dialogs and confirmations</li>
+                <li>Debug and troubleshoot full-stack applications</li>
+                <li>Understand HTTP methods and REST architectural principles</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>Employee Management System - Mini Project Assignment</strong></p>
+            <p>Complete CRUD Application with Spring Boot and Modern Frontend</p>
+            <p style="margin-top: 20px; color: #999;">
+                This document can be saved and used as reference throughout the project development.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
