@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .demo-banner {
+            background: #fbbf24;
+            color: #78350f;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: #f3f4f6;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .stat-box strong {
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .btn-edit {
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .btn-edit:hover {
+            background: #059669;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .btn-delete:hover {
+            background: #dc2626;
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #d97706;
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+            transform: scale(1.01);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .modal-header h2 {
+            color: #667eea;
+            font-size: 1.8em;
+        }
+
+        .close {
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .confirm-dialog {
+            text-align: center;
+        }
+
+        .confirm-dialog p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .confirm-dialog .employee-info {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .confirm-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            margin: 20px 30px;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            display: none;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 30px;
+            border-radius: 8px;
+        }
+
+        .info-box h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .stats {
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎓 DEMO VERSION - Using LocalStorage (No Backend Required) - For Educational Purposes
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🏢 Employee Management System</h1>
+            <p>Complete CRUD Demo - Frontend Only</p>
+        </div>
+
+        <div class="info-box">
+            <h4>📚 Demo Information:</h4>
+            <p>This is a <strong>frontend-only demo</strong> using LocalStorage to simulate database operations. 
+            In the actual project, you will replace LocalStorage with Axios calls to your Spring Boot backend.</p>
+            <p><strong>Sample data is pre-loaded</strong> for demonstration purposes.</p>
+        </div>
+
+        <div class="controls">
+            <div class="stats">
+                <div class="stat-box">
+                    <strong id="employeeCount">0</strong> Employees
+                </div>
+                <div class="stat-box">
+                    <strong id="departmentCount">0</strong> Departments
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="openAddModal()">
+                    ➕ Add New Employee
+                </button>
+                <button class="btn btn-warning" onclick="resetData()">
+                    🔄 Reset Demo Data
+                </button>
+            </div>
+        </div>
+
+        <div id="successMessage" class="success-message"></div>
+
+        <div class="table-container">
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Employee Modal -->
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Employee</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="employeeForm" onsubmit="saveEmployee(event)">
+                <input type="hidden" id="employeeId">
+                <div class="form-group">
+                    <label for="employeeName">Full Name *</label>
+                    <input type="text" id="employeeName" required placeholder="Enter employee name">
+                </div>
+                <div class="form-group">
+                    <label for="employeeDepartment">Department *</label>
+                    <select id="employeeDepartment" required>
+                        <option value="">-- Select Department --</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Operations">Operations</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="employeeSalary">Annual Salary (₹) *</label>
+                    <input type="number" id="employeeSalary" required placeholder="Enter salary amount" min="0">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">💾 Save Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="confirm-dialog">
+                <h2>⚠️ Confirm Delete</h2>
+                <p>Are you sure you want to delete this employee?</p>
+                <div class="employee-info">
+                    <strong>Name:</strong> <span id="deleteEmployeeName"></span><br>
+                    <strong>Department:</strong> <span id="deleteEmployeeDept"></span><br>
+                    <strong>Salary:</strong> ₹<span id="deleteEmployeeSalary"></span>
+                </div>
+                <p style="color: #dc2626; font-weight: bold;">This action cannot be undone!</p>
+                <div class="confirm-buttons">
+                    <button class="btn btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+                    <button class="btn btn-delete" onclick="confirmDelete()">🗑️ Delete Employee</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample employee data
+        const SAMPLE_DATA = [
+            { id: 1, name: "Rajesh Kumar", department: "Engineering", salary: 850000 },
+            { id: 2, name: "Priya Sharma", department: "Marketing", salary: 720000 },
+            { id: 3, name: "Amit Patel", department: "Sales", salary: 680000 },
+            { id: 4, name: "Sneha Reddy", department: "HR", salary: 650000 },
+            { id: 5, name: "Vikram Singh", department: "Engineering", salary: 920000 },
+            { id: 6, name: "Anita Desai", department: "Finance", salary: 780000 },
+            { id: 7, name: "Rahul Mehta", department: "IT", salary: 700000 },
+            { id: 8, name: "Kavita Iyer", department: "Operations", salary: 620000 }
+        ];
+
+        let employees = [];
+        let deleteEmployeeId = null;
+        let nextId = 9;
+
+        // Initialize app
+        window.onload = function() {
+            initializeData();
+            loadEmployees();
+        };
+
+        // Initialize data from localStorage or use sample data
+        function initializeData() {
+            const storedData = localStorage.getItem('employees');
+            const storedNextId = localStorage.getItem('nextId');
+            
+            if (storedData) {
+                employees = JSON.parse(storedData);
+                nextId = parseInt(storedNextId) || 9;
+            } else {
+                employees = [...SAMPLE_DATA];
+                saveToLocalStorage();
+            }
+        }
+
+        // Save to localStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('employees', JSON.stringify(employees));
+            localStorage.setItem('nextId', nextId.toString());
+        }
+
+        // Load all employees
+        function loadEmployees() {
+            renderEmployees();
+            updateStats();
+        }
+
+        // Render employees in table
+        function renderEmployees() {
+            const tbody = document.getElementById('employeeTableBody');
+            tbody.innerHTML = '';
+            
+            if (employees.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="empty-state">
+                            <div>
+                                <h3>📭 No Employees Found</h3>
+                                <p>Click "Add New Employee" to get started or "Reset Demo Data" to load sample data</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            } else {
+                employees.forEach(emp => {
+                    const row = `
+                        <tr>
+                            <td><strong>#${emp.id}</strong></td>
+                            <td>${emp.name}</td>
+                            <td><span style="background: #e0e7ff; padding: 5px 10px; border-radius: 5px; color: #4338ca;">${emp.department}</span></td>
+                            <td><strong>₹${emp.salary.toLocaleString('en-IN')}</strong></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-edit" onclick="openEditModal(${emp.id})">✏️ Edit</button>
+                                    <button class="btn btn-delete" onclick="openDeleteConfirm(${emp.id})">🗑️ Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('employeeCount').textContent = employees.length;
+            const departments = new Set(employees.map(emp => emp.department));
+            document.getElementById('departmentCount').textContent = departments.size;
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = '✅ ' + message;
+            successDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Open add modal
+        function openAddModal() {
+            document.getElementById('modalTitle').textContent = 'Add New Employee';
+            document.getElementById('employeeForm').reset();
+            document.getElementById('employeeId').value = '';
+            document.getElementById('employeeModal').style.display = 'block';
+        }
+
+        // Open edit modal
+        function openEditModal(id) {
+            const employee = employees.find(emp => emp.id === id);
+            if (employee) {
+                document.getElementById('modalTitle').textContent = 'Edit Employee';
+                document.getElementById('employeeId').value = employee.id;
+                document.getElementById('employeeName').value = employee.name;
+                document.getElementById('employeeDepartment').value = employee.department;
+                document.getElementById('employeeSalary').value = employee.salary;
+                document.getElementById('employeeModal').style.display = 'block';
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('employeeModal').style.display = 'none';
+        }
+
+        // Save employee (Add or Update)
+        function saveEmployee(event) {
+            event.preventDefault();
+            
+            const id = document.getElementById('employeeId').value;
+            const employee = {
+                name: document.getElementById('employeeName').value,
+                department: document.getElementById('employeeDepartment').value,
+                salary: parseInt(document.getElementById('employeeSalary').value)
+            };
+
+            if (id) {
+                // Update existing employee
+                const index = employees.findIndex(emp => emp.id === parseInt(id));
+                if (index !== -1) {
+                    employees[index] = { ...employees[index], ...employee };
+                    showSuccess(`Employee "${employee.name}" updated successfully!`);
+                }
+            } else {
+                // Add new employee
+                employee.id = nextId++;
+                employees.push(employee);
+                showSuccess(`Employee "${employee.name}" added successfully!`);
+            }
+
+            saveToLocalStorage();
+            loadEmployees();
+            closeModal();
+        }
+
+        // Open delete confirmation
+        function openDeleteConfirm(id) {
+            const employee = employees.find(emp => emp.id === id);
+            if (employee) {
+                deleteEmployeeId = id;
+                document.getElementById('deleteEmployeeName').textContent = employee.name;
+                document.getElementById('deleteEmployeeDept').textContent = employee.department;
+                document.getElementById('deleteEmployeeSalary').textContent = employee.salary.toLocaleString('en-IN');
+                document.getElementById('confirmModal').style.display = 'block';
+            }
+        }
+
+        // Close confirm modal
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+            deleteEmployeeId = null;
+        }
+
+        // Confirm delete
+        function confirmDelete() {
+            if (deleteEmployeeId) {
+                const employee = employees.find(emp => emp.id === deleteEmployeeId);
+                const employeeName = employee ? employee.name : 'Employee';
+                
+                employees = employees.filter(emp => emp.id !== deleteEmployeeId);
+                saveToLocalStorage();
+                loadEmployees();
+                closeConfirmModal();
+                showSuccess(`Employee "${employeeName}" deleted successfully!`);
+            }
+        }
+
+        // Reset to sample data
+        function resetData() {
+            if (confirm('This will reset all data to the original sample data. Continue?')) {
+                employees = [...SAMPLE_DATA];
+                nextId = 9;
+                saveToLocalStorage();
+                loadEmployees();
+                showSuccess('Demo data has been reset successfully!');
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
