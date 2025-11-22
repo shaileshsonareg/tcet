@@ -1,0 +1,52 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>login</th>
+            <th>avatar</th>
+        </tr>
+    </thead>
+    <tbody id="records">
+    </tbody>
+</table>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+
+url = "https://api.github.com/users"// http://localhost:8080/employees
+axios.get(url).then(function (response) {
+    console.log(response.data); console.table(response.data)
+    var users = response.data
+    var output = ``
+
+    for(let u of users) {
+        output += `<tr>
+            <td>${u.id}</td>
+            <td>${u.login}</td>
+            <td><img src="${u.avatar_url}" width="100px" height="100px"/></td>
+        </tr>`
+    }
+    document.getElementById("records").innerHTML = output;
+})
+    
+
+
+
+
+
+
+
+    
+    
+// url = "https://jsonplaceholder.typicode.com/users"
+// fetch(url)
+// .then(res => res.json())
+// .then(result => {
+//     console.log(result);
+//     console.table(result);
+// })
+
+</script>
