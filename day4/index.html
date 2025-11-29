@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Employee CRUD Application Tutorial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        code {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        .endpoint {
+            background: #e8f5e9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+            border-radius: 4px;
+        }
+        .method {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .get { background: #61affe; color: white; }
+        .post { background: #49cc90; color: white; }
+        .put { background: #fca130; color: white; }
+        .delete { background: #f93e3e; color: white; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .contact {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Spring Boot Employee CRUD Application</h1>
+    
+    <div class="contact">
+        <strong>Support Number:</strong> 9172007007
+    </div>
+
+    <div class="section">
+        <h2>📋 Project Overview</h2>
+        <p>This is a complete Employee Management System built with Spring Boot that demonstrates CRUD (Create, Read, Update, Delete) operations. The application supports both in-memory storage and MySQL database connectivity.</p>
+        
+        <h3>Technologies Used:</h3>
+        <ul>
+            <li><strong>Spring Boot 4.0.0</strong> - Application framework</li>
+            <li><strong>Java 21</strong> - Programming language</li>
+            <li><strong>Spring Data JPA</strong> - Database operations</li>
+            <li><strong>MySQL</strong> - Database (tcet_mca_company)</li>
+            <li><strong>Maven</strong> - Build tool</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🗂️ Project Structure</h2>
+        <pre>
+com.example.demo/
+├── DemoApplication.java       (Main application entry point)
+├── Employee.java              (POJO class for in-memory operations)
+├── EmployeeEntity.java        (JPA Entity for database)
+├── EmployeeRepository.java    (Database repository)
+├── EmployeeController.java    (REST API endpoints)
+└── DemoController.java        (Demo calculator endpoints)
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>🏃 Running the Application</h2>
+        <div class="note">
+            <strong>From Terminal (VS Code):</strong>
+            <pre>CTRL + J (to open terminal)
+.\mvnw spring-boot:run</pre>
+        </div>
+        <p>The application will start on <code>http://localhost:8080</code></p>
+    </div>
+
+    <div class="section">
+        <h2>💾 Database Configuration</h2>
+        <p><strong>File:</strong> application.properties</p>
+        <pre>
+spring.datasource.url=jdbc:mysql://localhost:3306/tcet_mca_company
+spring.datasource.username=root
+spring.datasource.password=%TGBbgt5
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+        </pre>
+        
+        <div class="important">
+            <strong>⚠️ Important:</strong> Make sure MySQL is running and the database <code>tcet_mca_company</code> exists with an <code>employees</code> table.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Employee Class Structure</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>Integer</td>
+                <td>Unique employee identifier</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>Employee name</td>
+            </tr>
+            <tr>
+                <td>department</td>
+                <td>String</td>
+                <td>Department (IT, HR, etc.)</td>
+            </tr>
+            <tr>
+                <td>salary</td>
+                <td>Integer</td>
+                <td>Employee salary</td>
+            </tr>
+        </table>
+
+        <h3>Sample Data (Pre-loaded):</h3>
+        <pre>
+Employee 1: { id: 1, name: "Amit", department: "IT", salary: 24000 }
+Employee 2: { id: 2, name: "Ramesh", department: "HR", salary: 21000 }
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>🔌 API Endpoints</h2>
+
+        <h3>1. Get All Employees (In-Memory)</h3>
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>http://localhost:8080/employee</code>
+        </div>
+        <p><strong>Description:</strong> Returns list of all employees from in-memory storage</p>
+        <p><strong>Response:</strong></p>
+        <pre>
+[
+  { "id": 1, "name": "Amit", "department": "IT", "salary": 24000 },
+  { "id": 2, "name": "Ramesh", "department": "HR", "salary": 21000 }
+]
+        </pre>
+
+        <h3>2. Get All Employees (From Database)</h3>
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>http://localhost:8080/employeedb</code>
+        </div>
+        <p><strong>Description:</strong> Returns all employees from MySQL database using native SQL query</p>
+
+        <h3>3. Add New Employee</h3>
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <code>http://localhost:8080/employee</code>
+        </div>
+        <p><strong>Request Body (JSON):</strong></p>
+        <pre>
+{
+  "id": 4,
+  "name": "Kiran",
+  "department": "IT",
+  "salary": 32000
+}
+        </pre>
+        <p><strong>Test in Postman/Thunder Client:</strong></p>
+        <ul>
+            <li>Set method to POST</li>
+            <li>Set Content-Type to application/json</li>
+            <li>Add JSON body</li>
+        </ul>
+
+        <h3>4. Update Employee Salary</h3>
+        <div class="endpoint">
+            <span class="method put">PUT</span>
+            <code>http://localhost:8080/employee/2</code>
+        </div>
+        <p><strong>Request Body (JSON):</strong></p>
+        <pre>
+{
+  "salary": 25000
+}
+        </pre>
+        <p><strong>Description:</strong> Updates salary of employee with specified ID</p>
+
+        <h3>5. Delete Employee</h3>
+        <div class="endpoint">
+            <span class="method delete">DELETE</span>
+            <code>http://localhost:8080/employee/2</code>
+        </div>
+        <p><strong>Response:</strong></p>
+        <pre>"Employee record delete successfully.."</pre>
+    </div>
+
+    <div class="section">
+        <h2>🧮 Demo Calculator Endpoints</h2>
+        
+        <h3>Addition (GET)</h3>
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>http://localhost:8080/mycalc?num1=5&num2=6</code>
+        </div>
+        <p><strong>Response:</strong> "5 + 6 = 11"</p>
+
+        <h3>Subtraction (POST)</h3>
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <code>http://localhost:8080/mycalc</code>
+        </div>
+        <p><strong>Request Body:</strong></p>
+        <pre>
+{
+  "num1": 10,
+  "num2": 4
+}
+        </pre>
+        <p><strong>Response:</strong> "10 - 4 = 6"</p>
+
+        <h3>Square Number</h3>
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>http://localhost:8080/sqr?num=5</code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Key Components Explained</h2>
+        
+        <h3>1. Employee.java (POJO)</h3>
+        <p>Plain Old Java Object used for in-memory operations with getters, setters, and toString method.</p>
+
+        <h3>2. EmployeeEntity.java (JPA Entity)</h3>
+        <p>Mapped to <code>employees</code> table in database with JPA annotations:</p>
+        <ul>
+            <li><code>@Entity</code> - Marks class as JPA entity</li>
+            <li><code>@Table(name = "employees")</code> - Maps to database table</li>
+            <li><code>@Id</code> - Primary key field</li>
+            <li><code>@GeneratedValue</code> - Auto-increment ID</li>
+        </ul>
+
+        <h3>3. EmployeeRepository.java</h3>
+        <p>Interface extending JpaRepository with custom native SQL queries:</p>
+        <ul>
+            <li><code>getAllEmployeesNative()</code> - SELECT * FROM employees</li>
+            <li><code>findByDepartmentNative()</code> - Filter by department</li>
+        </ul>
+
+        <h3>4. EmployeeController.java</h3>
+        <p>REST controller handling HTTP requests with annotations:</p>
+        <ul>
+            <li><code>@RestController</code> - Marks as REST controller</li>
+            <li><code>@GetMapping</code> - Handle GET requests</li>
+            <li><code>@PostMapping</code> - Handle POST requests</li>
+            <li><code>@PutMapping</code> - Handle PUT requests</li>
+            <li><code>@DeleteMapping</code> - Handle DELETE requests</li>
+            <li><code>@PathVariable</code> - Extract value from URL</li>
+            <li><code>@RequestBody</code> - Parse JSON from request body</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📝 Class Work Assignments</h2>
+        
+        <div class="note">
+            <h3>CW1: Calculator Endpoints</h3>
+            <p>Create endpoint <code>/mycalc</code> with methods:</p>
+            <ul>
+                <li>GET → Addition of 2 numbers</li>
+                <li>POST → Subtraction</li>
+                <li>PUT → Multiplication</li>
+                <li>DELETE → Division</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <h3>CW2: CRUD Operations</h3>
+            <p>Create complete CRUD application for <code>/employee</code> endpoint</p>
+            <ul>
+                <li>GET - List all employees</li>
+                <li>POST - Add new employee</li>
+                <li>PUT - Update employee details</li>
+                <li>DELETE - Remove employee</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🧪 Testing the Application</h2>
+        
+        <h3>Tools Required:</h3>
+        <ul>
+            <li><strong>Browser</strong> - For GET requests</li>
+            <li><strong>Postman</strong> or <strong>Thunder Client</strong> (VS Code Extension) - For POST/PUT/DELETE</li>
+        </ul>
+
+        <h3>Testing Steps:</h3>
+        <ol>
+            <li>Start the application using <code>.\mvnw spring-boot:run</code></li>
+            <li>Open browser and test GET endpoint: <code>http://localhost:8080/employee</code></li>
+            <li>Use Postman to test POST endpoint with JSON body</li>
+            <li>Test PUT endpoint to update salary</li>
+            <li>Test DELETE endpoint to remove employee</li>
+            <li>Verify database changes using <code>/employeedb</code> endpoint</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>❓ Common Issues & Solutions</h2>
+        
+        <h3>Issue 1: Application won't start</h3>
+        <p><strong>Solution:</strong> Check if port 8080 is already in use. Close other applications or change port in application.properties</p>
+
+        <h3>Issue 2: Database connection failed</h3>
+        <p><strong>Solution:</strong> Verify MySQL is running, database exists, and credentials are correct</p>
+
+        <h3>Issue 3: Employee not found</h3>
+        <p><strong>Solution:</strong> Check if employee ID exists in the list. Remember in-memory and database storage are separate</p>
+
+        <h3>Issue 4: JSON parsing error</h3>
+        <p><strong>Solution:</strong> Ensure Content-Type header is set to application/json in Postman</p>
+    </div>
+
+    <div class="section">
+        <h2>📚 Learning Outcomes</h2>
+        <ul>
+            <li>Understanding REST API design and HTTP methods</li>
+            <li>Working with Spring Boot annotations</li>
+            <li>Implementing CRUD operations</li>
+            <li>Using JPA for database operations</li>
+            <li>Testing APIs with Postman/Thunder Client</li>
+            <li>Connecting Spring Boot with MySQL</li>
+            <li>Handling request parameters and body</li>
+        </ul>
+    </div>
+
+    <div class="contact">
+        <h3>📞 Need Help?</h3>
+        <p><strong>Support Contact:</strong> 9172007007</p>
+    </div>
+
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; background: #34495e; color: white; border-radius: 8px;">
+        <p><strong>Spring Boot Employee CRUD Application Tutorial</strong></p>
+        <p>© TCET MCA - Demo Project for Learning</p>
+    </footer>
+</body>
+</html>
