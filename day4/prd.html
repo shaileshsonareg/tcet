@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,39 +11,46 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: #f5f7fa;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
+
         header p {
             font-size: 1.2em;
             opacity: 0.95;
         }
+
         .section {
             background: white;
             margin: 30px 0;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
+
         h2 {
             color: #667eea;
             font-size: 2em;
@@ -50,16 +58,19 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #667eea;
         }
+
         h3 {
             color: #764ba2;
             font-size: 1.5em;
             margin: 25px 0 15px 0;
         }
+
         h4 {
             color: #555;
             font-size: 1.2em;
             margin: 20px 0 10px 0;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -67,25 +78,33 @@
             overflow: hidden;
             border-radius: 8px;
         }
-        th, td {
+
+        th,
+        td {
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
+
         th {
             background: #667eea;
             color: white;
             font-weight: 600;
         }
+
         tr:hover {
             background: #f8f9fa;
         }
-        ul, ol {
+
+        ul,
+        ol {
             margin: 15px 0 15px 30px;
         }
+
         li {
             margin: 8px 0;
         }
+
         pre {
             background: #2d2d2d;
             color: #f8f8f2;
@@ -97,6 +116,7 @@
             line-height: 1.5;
             margin: 15px 0;
         }
+
         code {
             background: #f4f4f4;
             padding: 3px 8px;
@@ -105,6 +125,7 @@
             color: #e83e8c;
             font-size: 0.9em;
         }
+
         .badge {
             display: inline-block;
             padding: 5px 12px;
@@ -113,13 +134,42 @@
             font-weight: 600;
             margin: 3px;
         }
-        .badge-admin { background: #dc3545; color: white; }
-        .badge-seller { background: #ffc107; color: #333; }
-        .badge-customer { background: #28a745; color: white; }
-        .badge-get { background: #61affe; color: white; }
-        .badge-post { background: #49cc90; color: white; }
-        .badge-put { background: #fca130; color: white; }
-        .badge-delete { background: #f93e3e; color: white; }
+
+        .badge-admin {
+            background: #dc3545;
+            color: white;
+        }
+
+        .badge-seller {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .badge-customer {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-get {
+            background: #61affe;
+            color: white;
+        }
+
+        .badge-post {
+            background: #49cc90;
+            color: white;
+        }
+
+        .badge-put {
+            background: #fca130;
+            color: white;
+        }
+
+        .badge-delete {
+            background: #f93e3e;
+            color: white;
+        }
+
         .phase {
             background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
             padding: 20px;
@@ -127,6 +177,7 @@
             margin: 20px 0;
             border-radius: 8px;
         }
+
         .api-endpoint {
             background: #f8f9fa;
             padding: 15px;
@@ -134,6 +185,7 @@
             border-left: 4px solid #667eea;
             border-radius: 4px;
         }
+
         .note {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -141,6 +193,7 @@
             margin: 15px 0;
             border-radius: 4px;
         }
+
         .warning {
             background: #f8d7da;
             border-left: 4px solid #dc3545;
@@ -148,6 +201,7 @@
             margin: 15px 0;
             border-radius: 4px;
         }
+
         .success {
             background: #d4edda;
             border-left: 4px solid #28a745;
@@ -155,12 +209,14 @@
             margin: 15px 0;
             border-radius: 4px;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
+
         .card {
             background: white;
             border: 1px solid #e0e0e0;
@@ -168,10 +224,12 @@
             padding: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         footer {
             background: #2d2d2d;
             color: white;
@@ -179,8 +237,35 @@
             padding: 30px 20px;
             margin-top: 50px;
         }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>🛒 E-Commerce Platform</h1>
@@ -189,11 +274,46 @@
     </header>
 
     <div class="container">
+        <!-- Table of Contents -->
         <div class="section">
-            <h2>📋 Project Overview</h2>
-            <p>A multi-vendor e-commerce marketplace where sellers can register, get approved by admin, manage their products, and customers can browse and purchase products. The platform implements a three-tier user system: <strong>Admin</strong>, <strong>Seller</strong>, and <strong>Customer</strong>.</p>
-            
-            <h3>Technology Stack</h3>
+            <h2>📋 Table of Contents</h2>
+            <div class="toc">
+                <ul>
+                    <li><a href="#overview">1. Project Overview</a></li>
+                    <li><a href="#tech-stack">2. Technology Stack</a></li>
+                    <li><a href="#user-roles">3. User Roles & Permissions</a></li>
+                    <li><a href="#sprints">4. Sprint Planning (4 Sprints)</a></li>
+                    <li><a href="#features">5. Feature Specifications</a></li>
+                    <li><a href="#api">6. API Documentation</a></li>
+                    <li><a href="#code">7. Code Implementation Examples</a></li>
+                    <li><a href="#database">8. Database Schema</a></li>
+                    <li><a href="#wireframes">9. Wireframes & UI Mockups</a></li>
+                    <li><a href="#implementation">10. Additional Implementation Notes</a></li>
+                    <li><a href="#future">11. Future Enhancements</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="section" id="overview">
+            <h2>📋 1. Project Overview</h2>
+            <p>A multi-vendor e-commerce marketplace where sellers can register, get approved by admin, manage their
+                products, and customers can browse and purchase products. The platform implements a three-tier user
+                system: <strong>Admin</strong>, <strong>Seller</strong>, and <strong>Customer</strong>.</p>
+
+            <h3>Key Objectives</h3>
+            <ul>
+                <li>Enable seller registration with admin approval workflow</li>
+                <li>Provide comprehensive product management for sellers</li>
+                <li>Offer seamless shopping experience for customers</li>
+                <li>Implement secure authentication and authorization</li>
+                <li>Maintain inventory and order management</li>
+            </ul>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="section" id="tech-stack">
+            <h2>💻 2. Technology Stack</h2>
             <div class="grid">
                 <div class="card">
                     <h4>Frontend</h4>
@@ -206,8 +326,8 @@
                 <div class="card">
                     <h4>Backend</h4>
                     <ul>
-                        <li><strong>Node.js</strong> - Runtime environment</li>
-                        <li><strong>Express.js</strong> - Web framework</li>
+                        <li><strong>Java Spring Boot</strong> - Web framework</li>
+                        <li><strong>Spring Data JPA</strong> - ORM layer</li>
                         <li><strong>MySQL</strong> - Database</li>
                         <li><strong>JWT</strong> - Authentication</li>
                     </ul>
@@ -215,16 +335,18 @@
                 <div class="card">
                     <h4>Additional Tools</h4>
                     <ul>
-                        <li><strong>bcrypt</strong> - Password hashing</li>
-                        <li><strong>express-validator</strong> - Input validation</li>
+                        <li><strong>Spring Security</strong> - Security & authentication</li>
+                        <li><strong>BCrypt</strong> - Password hashing</li>
+                        <li><strong>Hibernate Validator</strong> - Input validation</li>
                         <li><strong>CORS</strong> - Cross-origin requests</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>👥 User Roles & Permissions</h2>
+        <!-- User Roles -->
+        <div class="section" id="user-roles">
+            <h2>👥 3. User Roles & Permissions</h2>
             <table>
                 <thead>
                     <tr>
@@ -271,59 +393,84 @@
             </table>
         </div>
 
-        <div class="section">
-            <h2>🚀 Development Phases</h2>
-            
+        <!-- Sprint Planning -->
+        <div class="section" id="sprints">
+            <h2>🚀 4. Sprint Planning (4 Sprints)</h2>
+
             <div class="phase">
-                <h3>Phase 1: Authentication & User Management</h3>
+                <h3>🚀 Sprint 1: Authentication & Seller Onboarding (2 weeks)</h3>
                 <p><strong>Deliverables:</strong> Auth API, Email service, Admin seller management panel</p>
                 <ul>
-                    <li>User registration (Seller/Customer)</li>
-                    <li>Login with JWT token generation</li>
-                    <li>Email verification system</li>
-                    <li>Admin panel for seller approval</li>
+                    <li><strong>System Authentication:</strong> Register, Login, Logout functionality</li>
+                    <li><strong>JWT Implementation:</strong> Token-based authentication with refresh tokens</li>
+                    <li><strong>Seller Self-Signup:</strong> Seller registration form with business details</li>
+                    <li><strong>Email Verification:</strong> Send verification emails to new sellers</li>
+                    <li><strong>Admin Panel - Sellers:</strong> View, Approve, Reject seller applications</li>
+                    <li><strong>Status Notifications:</strong> Email notifications for approval/rejection</li>
                 </ul>
             </div>
 
             <div class="phase">
-                <h3>Phase 2: Product Management</h3>
+                <h3>📦 Sprint 2: Product Management (Seller Panel) (2 weeks)</h3>
                 <p><strong>Deliverables:</strong> Seller dashboard, Product management APIs, Image storage</p>
                 <ul>
-                    <li>Product CRUD operations</li>
-                    <li>Category management</li>
-                    <li>Inventory tracking</li>
-                    <li>Product image upload</li>
+                    <li><strong>Product CRUD:</strong> Create, Read, Update, Delete products</li>
+                    <li><strong>Image Upload:</strong> Product image upload and management</li>
+                    <li><strong>Inventory Management:</strong> Stock tracking and updates</li>
+                    <li><strong>Product Categories:</strong> Category and subcategory management</li>
+                    <li><strong>Product Listing:</strong> Seller's product list with search/filter</li>
+                    <li><strong>Product Status:</strong> Active/Inactive product toggle</li>
                 </ul>
             </div>
 
             <div class="phase">
-                <h3>Phase 3: Customer Profile & Authentication</h3>
+                <h3>👥 Sprint 3: Customer Onboarding & Basic Auth (2 weeks)</h3>
                 <p><strong>Deliverables:</strong> Customer auth APIs, Profile management UI</p>
                 <ul>
-                    <li>Customer registration/login</li>
-                    <li>Profile management</li>
-                    <li>Address management</li>
-                    <li>Password reset functionality</li>
+                    <li><strong>Customer Registration:</strong> Self-signup with email verification</li>
+                    <li><strong>Customer Login:</strong> Secure authentication</li>
+                    <li><strong>Profile Management:</strong> Update personal information, addresses</li>
+                    <li><strong>Address Book:</strong> Multiple shipping addresses</li>
+                    <li><strong>Password Management:</strong> Change password, forgot password flow</li>
                 </ul>
             </div>
 
             <div class="phase">
-                <h3>Phase 4: Shopping & Orders</h3>
+                <h3>🛍️ Sprint 4: Shopping & Ordering (2 weeks)</h3>
                 <p><strong>Deliverables:</strong> Customer shopping interface, Cart system, Order processing</p>
                 <ul>
-                    <li>Product browsing and search</li>
-                    <li>Shopping cart functionality</li>
-                    <li>Checkout process</li>
-                    <li>Order management</li>
+                    <li><strong>Product Browsing:</strong> View all in-stock products with pagination</li>
+                    <li><strong>Product Details:</strong> Detailed product view page</li>
+                    <li><strong>Shopping Cart:</strong> Add, update, remove items from cart</li>
+                    <li><strong>Stock Validation:</strong> Real-time stock checking</li>
+                    <li><strong>Checkout:</strong> Order placement with address selection</li>
+                    <li><strong>Order History:</strong> View past orders and status</li>
+                    <li><strong>Order Management:</strong> Seller can update order status</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2>🔌 API Endpoints</h2>
+        <!-- Feature Specifications -->
+        <div class="section" id="features">
+            <h2>✨ 5. Feature Specifications</h2>
+
+            <h3>Product Management Features</h3>
+            <ul>
+                <li>Create product with multiple images</li>
+                <li>Update product details and pricing</li>
+                <li>Manage inventory levels</li>
+                <li>Activate/Deactivate products</li>
+                <li>Delete products</li>
+                <li>View product performance analytics</li>
+            </ul>
+        </div>
+
+        <!-- API Documentation -->
+        <div class="section" id="api">
+            <h2>🔌 6. API Documentation</h2>
 
             <h3>Authentication APIs</h3>
-            
+
             <div class="api-endpoint">
                 <span class="badge badge-post">POST</span>
                 <code>/api/auth/register</code>
@@ -417,9 +564,9 @@
   "title": "Product Name",
   "description": "Product description",
   "price": 99.99,
-  "stock_quantity": 100,
+  "stockQuantity": 100,
   "category": "Electronics",
-  "image_url": "https://example.com/image.jpg"
+  "imageUrl": "https://example.com/image.jpg"
 }</pre>
             </div>
 
@@ -481,7 +628,7 @@
                 <p><strong>Auth Required:</strong> Customer</p>
                 <p><strong>Request Body:</strong></p>
                 <pre>{
-  "shipping_address": "123 Main St, City, State, ZIP"
+  "shippingAddress": "123 Main St, City, State, ZIP"
 }</pre>
             </div>
 
@@ -500,13 +647,16 @@
             </div>
         </div>
 
-        <div class="section">
-            <h2>💻 Frontend Implementation (Vanilla JS + Axios)</h2>
+        <!-- Code Implementation -->
+        <div class="section" id="code">
+            <h2>💻 7. Code Implementation Examples</h2>
 
-            <h3>1. Axios Configuration</h3>
+            <h3>Frontend - Vanilla JavaScript with Axios</h3>
+
+            <h4>1. Axios Configuration</h4>
             <pre>// api.js - Axios setup with interceptors
 const API = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'http://localhost:8080/api',
     headers: {
         'Content-Type': 'application/json'
     }
@@ -539,7 +689,7 @@ API.interceptors.response.use(
 
 export default API;</pre>
 
-            <h3>2. Authentication Service</h3>
+            <h4>2. Authentication Service</h4>
             <pre>// authService.js
 const authService = {
     register: async (userData) => {
@@ -572,7 +722,7 @@ const authService = {
     }
 };</pre>
 
-            <h3>3. Login Page Implementation</h3>
+            <h4>3. Login Page Implementation</h4>
             <pre>// login.js
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
@@ -614,7 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });</pre>
 
-            <h3>4. Product Service</h3>
+            <h4>4. Product Service</h4>
             <pre>// productService.js
 const productService = {
     getAllProducts: async (params = {}) => {
@@ -638,4 +788,773 @@ const productService = {
     },
 
     deleteProduct: async (id) => {
-        const response = a
+        const response = await API.delete(`/seller/products/${id}`);
+        return response.data;
+    }
+};</pre>
+
+            <h3>Backend - Java Spring Boot</h3>
+
+            <h4>1. Application Configuration (application.properties)</h4>
+            <pre># Server Configuration
+server.port=8080
+
+# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA/Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# JWT Configuration
+jwt.secret=your_super_secret_jwt_key_change_in_production
+jwt.expiration=604800000
+
+# File Upload Configuration
+spring.servlet.multipart.max-file-size=5MB
+spring.servlet.multipart.max-request-size=5MB
+
+# Email Configuration
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your_email@gmail.com
+spring.mail.password=your_app_password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true</pre>
+
+            <h4>2. User Entity</h4>
+            <pre>@Entity
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false)
+    @Email
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.ACTIVE;
+
+    private Boolean verified = false;
+
+    private String verificationToken;
+
+    private String resetToken;
+
+    private LocalDateTime resetTokenExpiry;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private SellerProfile sellerProfile;
+
+    public enum Role {
+        ADMIN, SELLER, CUSTOMER
+    }
+
+    public enum Status {
+        PENDING, APPROVED, REJECTED, ACTIVE, SUSPENDED
+    }
+}</pre>
+
+            <h4>3. Product Entity</h4>
+            <pre>@Entity
+@Table(name = "products")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_id", nullable = false)
+    private User seller;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    @Column(nullable = false)
+    private Integer stockQuantity = 0;
+
+    private String category;
+
+    private String imageUrl;
+
+    @Enumerated(EnumType.STRING)
+    private ProductStatus status = ProductStatus.ACTIVE;
+
+    private Integer views = 0;
+
+    private Integer salesCount = 0;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
+    public enum ProductStatus {
+        ACTIVE, INACTIVE, OUT_OF_STOCK
+    }
+}</pre>
+
+            <h4>4. JWT Utility Class</h4>
+            <pre>@Component
+public class JwtUtil {
+    @Value("${jwt.secret}")
+    private String secret;
+
+    @Value("${jwt.expiration}")
+    private Long expiration;
+
+    public String generateToken(UserDetails userDetails) {
+        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();
+        return createToken(claims, userDetails.getUsername());
+    }
+
+    private String createToken(Map&lt;String, Object&gt; claims, String subject) {
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(subject)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(SignatureAlgorithm.HS256, secret)
+                .compact();
+    }
+
+    public Boolean validateToken(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public &lt;T&gt; T extractClaim(String token, Function&lt;Claims, T&gt; claimsResolver) {
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+    }
+
+    private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+}</pre>
+
+            <h4>5. Authentication Controller</h4>
+            <pre>@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "*")
+public class AuthController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @PostMapping("/register")
+    public ResponseEntity&lt;?&gt; register(@Valid @RequestBody RegisterRequest request) {
+        if (userRepository.existsByEmail(request.getEmail())) {
+            return ResponseEntity.badRequest()
+                .body(Map.of("message", "Email already registered"));
+        }
+
+        User user = new User();
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setName(request.getName());
+        user.setRole(User.Role.valueOf(request.getRole().toUpperCase()));
+        user.setStatus(request.getRole().equalsIgnoreCase("seller") 
+            ? User.Status.PENDING : User.Status.ACTIVE);
+        user.setVerified(false);
+
+        User savedUser = userRepository.save(user);
+
+        if (request.getRole().equalsIgnoreCase("seller")) {
+            SellerProfile profile = new SellerProfile();
+            profile.setUser(savedUser);
+            profile.setBusinessName(request.getBusinessName());
+            profile.setApprovalStatus(SellerProfile.ApprovalStatus.PENDING);
+            sellerProfileRepository.save(profile);
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(Map.of(
+                "message", "Registration successful. Please verify your email.",
+                "userId", savedUser.getId()
+            ));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity&lt;?&gt; login(@Valid @RequestBody LoginRequest request) {
+        try {
+            authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                    request.getEmail(), 
+                    request.getPassword()
+                )
+            );
+        } catch (BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("message", "Invalid credentials"));
+        }
+
+        User user = userRepository.findByEmail(request.getEmail())
+            .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (!user.getVerified()) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("message", "Please verify your email before logging in"));
+        }
+
+        UserDetails userDetails = new CustomUserDetails(user);
+        String token = jwtUtil.generateToken(userDetails);
+
+        return ResponseEntity.ok(Map.of(
+            "token", token,
+            "user", Map.of(
+                "id", user.getId(),
+                "email", user.getEmail(),
+                "name", user.getName(),
+                "role", user.getRole(),
+                "status", user.getStatus()
+            )
+        ));
+    }
+}</pre>
+
+            <h4>6. Product Controller</h4>
+            <pre>@RestController
+@RequestMapping("/api/products")
+@CrossOrigin(origins = "*")
+public class ProductController {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @GetMapping
+    public ResponseEntity&lt;?&gt; getAllProducts(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String search,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int limit) {
+
+        Pageable pageable = PageRequest.of(page, limit, Sort.by("createdAt").descending());
+        Page&lt;Product&gt; products;
+
+        if (category != null && search != null) {
+            products = productRepository.findByCategoryAndTitleContainingOrDescriptionContaining(
+                category, search, search, pageable);
+        } else if (category != null) {
+            products = productRepository.findByCategory(category, pageable);
+        } else if (search != null) {
+            products = productRepository.findByTitleContainingOrDescriptionContaining(
+                search, search, pageable);
+        } else {
+            products = productRepository.findByStatusAndStockQuantityGreaterThan(
+                Product.ProductStatus.ACTIVE, 0, pageable);
+        }
+
+        return ResponseEntity.ok(Map.of(
+            "products", products.getContent(),
+            "pagination", Map.of(
+                "page", page,
+                "limit", limit,
+                "total", products.getTotalElements(),
+                "pages", products.getTotalPages()
+            )
+        ));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity&lt;Product&gt; getProductById(@PathVariable Long id) {
+        Product product = productRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+        return ResponseEntity.ok(product);
+    }
+}</pre>
+
+            <h4>7. Seller Product Controller</h4>
+            <pre>@RestController
+@RequestMapping("/api/seller/products")
+@CrossOrigin(origins = "*")
+public class SellerProductController {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @PostMapping
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity&lt;?&gt; createProduct(
+            @Valid @RequestBody ProductRequest request,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+
+        User seller = userDetails.getUser();
+        if (seller.getStatus() != User.Status.APPROVED) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("message", "Your seller account is pending approval"));
+        }
+
+        Product product = new Product();
+        product.setSeller(seller);
+        product.setTitle(request.getTitle());
+        product.setDescription(request.getDescription());
+        product.setPrice(request.getPrice());
+        product.setStockQuantity(request.getStockQuantity());
+        product.setCategory(request.getCategory());
+        product.setImageUrl(request.getImageUrl());
+        product.setStatus(Product.ProductStatus.ACTIVE);
+
+        Product savedProduct = productRepository.save(product);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(Map.of(
+                "message", "Product created successfully",
+                "productId", savedProduct.getId()
+            ));
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity&lt;?&gt; updateProduct(
+            @PathVariable Long id,
+            @Valid @RequestBody ProductRequest request,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+
+        Product product = productRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+
+        if (!product.getSeller().getId().equals(userDetails.getUser().getId())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("message", "Unauthorized"));
+        }
+
+        product.setTitle(request.getTitle());
+        product.setDescription(request.getDescription());
+        product.setPrice(request.getPrice());
+        product.setStockQuantity(request.getStockQuantity());
+        product.setCategory(request.getCategory());
+        product.setImageUrl(request.getImageUrl());
+
+        productRepository.save(product);
+
+        return ResponseEntity.ok(Map.of("message", "Product updated successfully"));
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity&lt;?&gt; deleteProduct(
+            @PathVariable Long id,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+
+        Product product = productRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+
+        if (!product.getSeller().getId().equals(userDetails.getUser().getId())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("message", "Unauthorized"));
+        }
+
+        productRepository.delete(product);
+
+        return ResponseEntity.ok(Map.of("message", "Product deleted successfully"));
+    }
+}</pre>
+        </div>
+
+        <!-- Database Schema -->
+        <div class="section" id="database">
+            <h2>🗄️ 8. Database Schema - MySQL</h2>
+            <pre>CREATE DATABASE IF NOT EXISTS ecommerce;
+USE ecommerce;
+
+-- Users table
+CREATE TABLE users (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN', 'SELLER', 'CUSTOMER') NOT NULL,
+    status ENUM('PENDING', 'APPROVED', 'REJECTED', 'ACTIVE', 'SUSPENDED') DEFAULT 'ACTIVE',
+    verified BOOLEAN DEFAULT FALSE,
+    verification_token VARCHAR(255),
+    reset_token VARCHAR(255),
+    reset_token_expiry DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_email (email),
+    INDEX idx_role (role),
+    INDEX idx_status (status)
+);
+
+-- Seller profiles table
+CREATE TABLE seller_profiles (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    business_name VARCHAR(255) NOT NULL,
+    business_address TEXT,
+    phone VARCHAR(20),
+    business_description TEXT,
+    approval_status ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING',
+    approved_at DATETIME,
+    approved_by BIGINT,
+    rejection_reason TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (approved_by) REFERENCES users(id) ON DELETE SET NULL,
+    INDEX idx_approval_status (approval_status)
+);
+
+-- Products table
+CREATE TABLE products (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    seller_id BIGINT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL DEFAULT 0,
+    category VARCHAR(100),
+    image_url VARCHAR(500),
+    status ENUM('ACTIVE', 'INACTIVE', 'OUT_OF_STOCK') DEFAULT 'ACTIVE',
+    views INT DEFAULT 0,
+    sales_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (seller_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_seller (seller_id),
+    INDEX idx_category (category),
+    INDEX idx_status (status),
+    INDEX idx_created (created_at),
+    FULLTEXT INDEX idx_search (title, description)
+);
+
+-- Carts table
+CREATE TABLE carts (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE INDEX idx_user (user_id)
+);
+
+-- Cart items table
+CREATE TABLE cart_items (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    cart_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    UNIQUE INDEX idx_cart_product (cart_id, product_id),
+    INDEX idx_product (product_id)
+);
+
+-- Orders table
+CREATE TABLE orders (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    order_number VARCHAR(50) UNIQUE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status ENUM('PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED') DEFAULT 'PENDING',
+    shipping_address TEXT NOT NULL,
+    payment_method VARCHAR(50),
+    payment_status ENUM('PENDING', 'PAID', 'FAILED') DEFAULT 'PENDING',
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user (user_id),
+    INDEX idx_order_number (order_number),
+    INDEX idx_status (status),
+    INDEX idx_created (created_at)
+);
+
+-- Order items table
+CREATE TABLE order_items (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    order_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    seller_id BIGINT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    FOREIGN KEY (seller_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_order (order_id),
+    INDEX idx_product (product_id),
+    INDEX idx_seller (seller_id)
+);
+
+-- Customer addresses table
+CREATE TABLE customer_addresses (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    address_type ENUM('SHIPPING', 'BILLING', 'BOTH') DEFAULT 'SHIPPING',
+    full_name VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    address_line1 VARCHAR(255) NOT NULL,
+    address_line2 VARCHAR(255),
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    is_default BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user (user_id)
+);
+
+-- Insert default admin user (password: admin123)
+INSERT INTO users (email, password, name, role, status, verified) 
+VALUES ('admin@ecommerce.com', '$2a$10$X9Y.8VZ5JKxQ6M1WzH5LHeLgp9CQ5XJ9nH8QzYf5K6VzFxLCmq3Ri', 
+        'Admin User', 'ADMIN', 'ACTIVE', TRUE);</pre>
+        </div>
+
+        <!-- Wireframes -->
+        <div class="section" id="wireframes">
+            <h2>🎨 9. Wireframes & UI Mockups</h2>
+
+            <h3>Product Listing Page</h3>
+            <div class="note">
+                <h4>📱 Product List View</h4>
+                <p>Grid layout showing products with:</p>
+                <ul>
+                    <li>Product image</li>
+                    <li>Product title</li>
+                    <li>Price</li>
+                    <li>Seller name</li>
+                    <li>Stock status</li>
+                    <li>Add to Cart button</li>
+                </ul>
+            </div>
+
+            <h3>Product Detail Page</h3>
+            <div class="note">
+                <h4>🔍 Product Details View</h4>
+                <p>Detailed view including:</p>
+                <ul>
+                    <li>Large product image gallery</li>
+                    <li>Product title and description</li>
+                    <li>Pricing information</li>
+                    <li>Stock availability</li>
+                    <li>Seller information</li>
+                    <li>Quantity selector</li>
+                    <li>Add to Cart / Buy Now buttons</li>
+                    <li>Product specifications</li>
+                </ul>
+            </div>
+
+            <h3>Shopping Cart Page</h3>
+            <div class="note">
+                <h4>🛒 Shopping Cart View</h4>
+                <p>Cart management interface with:</p>
+                <ul>
+                    <li>List of cart items with thumbnails</li>
+                    <li>Quantity update controls (+/-)</li>
+                    <li>Remove item button</li>
+                    <li>Individual item subtotals</li>
+                    <li>Cart total calculation</li>
+                    <li>Proceed to Checkout button</li>
+                    <li>Continue Shopping link</li>
+                </ul>
+            </div>
+
+            <h3>Admin Dashboard - Seller Management</h3>
+            <div class="note">
+                <h4>👨‍💼 Admin Seller Management</h4>
+                <p>Admin interface showing:</p>
+                <ul>
+                    <li>Table of all sellers</li>
+                    <li>Seller status (Pending/Approved/Rejected)</li>
+                    <li>Business information</li>
+                    <li>Registration date</li>
+                    <li>Approve/Reject action buttons</li>
+                    <li>Filter by status dropdown</li>
+                    <li>Search functionality</li>
+                </ul>
+            </div>
+
+            <h3>Seller Dashboard - Product Management</h3>
+            <div class="note">
+                <h4>📦 Seller Product Dashboard</h4>
+                <p>Seller control panel featuring:</p>
+                <ul>
+                    <li>List of seller's products</li>
+                    <li>Add New Product button</li>
+                    <li>Edit/Delete actions per product</li>
+                    <li>Stock quantity display</li>
+                    <li>Product status toggle (Active/Inactive)</li>
+                    <li>Sales statistics</li>
+                    <li>Quick stock update</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Implementation Notes -->
+        <div class="section" id="implementation">
+            <h2>📝 10. Additional Implementation Notes</h2>
+
+            <h3>Maven Dependencies (pom.xml)</h3>
+            <pre>&lt;dependencies&gt;
+    &lt;!-- Spring Boot Starters --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    
+    &lt;!-- MySQL Driver --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+    
+    &lt;!-- JWT --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+        &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
+        &lt;version&gt;0.9.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    
+    &lt;!-- Lombok --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+
+            <h3>Testing Checklist</h3>
+            <ul>
+                <li>✅ User registration with email verification</li>
+                <li>✅ Seller approval workflow</li>
+                <li>✅ Product CRUD operations with stock validation</li>
+                <li>✅ Shopping cart functionality</li>
+                <li>✅ Order placement with stock deduction</li>
+                <li>✅ Role-based access control</li>
+                <li>✅ JWT token expiration handling</li>
+                <li>✅ Database transaction rollback on errors</li>
+                <li>✅ Concurrent order race condition handling</li>
+            </ul>
+
+            <h3>Security Considerations</h3>
+            <ul>
+                <li>🔒 Password hashing with BCrypt</li>
+                <li>🔒 JWT token authentication</li>
+                <li>🔒 Role-based authorization with Spring Security</li>
+                <li>🔒 SQL injection prevention using JPA/Hibernate</li>
+                <li>🔒 Input validation with Hibernate Validator</li>
+                <li>🔒 CORS configuration for production</li>
+                <li>🔒 Rate limiting on authentication endpoints</li>
+                <li>🔒 HTTPS enforcement in production</li>
+            </ul>
+
+            <h3>Performance Optimization</h3>
+            <ul>
+                <li>⚡ Database indexing on frequently queried columns</li>
+                <li>⚡ Connection pooling with HikariCP (default in Spring Boot)</li>
+                <li>⚡ Pagination for product listings using Spring Data</li>
+                <li>⚡ Image optimization and CDN integration</li>
+                <li>⚡ Caching strategy with Spring Cache</li>
+                <li>⚡ Lazy loading for entity relationships</li>
+            </ul>
+        </div>
+
+        <!-- Future Enhancements -->
+        <div class="section" id="future">
+            <h2>🚀 11. Future Enhancements (Post-MVP)</h2>
+            <ul>
+                <li>🚀 Payment gateway integration (Stripe/Razorpay)</li>
+                <li>🚀 Order tracking system</li>
+                <li>🚀 Product reviews and ratings</li>
+                <li>🚀 Advanced search with filters</li>
+                <li>🚀 Wishlist functionality</li>
+                <li>🚀 Real-time notifications (WebSocket)</li>
+                <li>🚀 Sales analytics dashboard for sellers</li>
+                <li>🚀 Promotional codes and discounts</li>
+                <li>🚀 Multi-currency support</li>
+                <li>🚀 Mobile app (React Native)</li>
+                <li>🚀 Social media integration</li>
+                <li>🚀 Automated inventory alerts</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 E-Commerce Platform PRD | Version 1.0</p>
+        <p>Last Updated: November 2025</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Tech Stack: Java Spring Boot + MySQL + Vanilla JavaScript</p>
+    </footer>
+</body>
+
+</html>
